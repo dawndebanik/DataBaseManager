@@ -3,8 +3,10 @@
 $code = rand(100000,999999);
 $response = array();
 
-if(isset($_POST['id'])){
-    $id=$_POST['id'];
+$post = json_decode($_POST['json'], true);
+
+if(isset($post['id'])){
+    $id=$post['id'];
     mail($id, "Confirmation Code", "Your confirmation code is ".$code.".");
     $response['suc']=1;
     $response['msg']=$code;

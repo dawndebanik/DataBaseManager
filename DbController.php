@@ -11,20 +11,19 @@
  *
  * @author Debanik
  */
+
 class DbController {
-    function connect($db){
+    function connect(mysqli $db){
         require_once __DIR__.'/config.php';
+
         $con = new mysqli(SERVER, USERNAME, PASSWORD, $db);
-        if($con->errno){
+        if($con->errno!=0){
             return null;
         }
         return $con;
     }
     function disconnect(mysqli $con){
         $con->close();
-    }
-
-    function lol(){
     }
 }
 
